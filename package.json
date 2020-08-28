@@ -1,7 +1,7 @@
 {
   "name": "ava-backend-services-tests",
   "scripts": {
-    "test:web:dev": "ENV=dev wdio wdio.BUILD.conf.js",
+    "test:web:dev": "ENV=dev node node_modules/.bin/wdio wdio.conf.js",
     "test:api:dev": "ENV=dev ./node_modules/.bin/cucumber-js -p apiProf"
   },
   "keywords": [],

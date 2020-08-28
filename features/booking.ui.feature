@@ -1,4 +1,4 @@
-  Feature: Authentication
+  Feature: Bookings
 
-  Scenario: A customer can login
-    Given I can reach google
+  Scenario: A user can make a booking
+    Given I am on the booking page

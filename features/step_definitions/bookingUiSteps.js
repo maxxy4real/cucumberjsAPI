@@ -1,8 +1,9 @@
 import { Given, When, Then } from 'cucumber';
+import homepage from '../../pages/homepage.js';
 import { expect } from 'chai';
 
 
-Given('I can reach google', function () {
-    browser.url('https://google.com')
+Given('I am on the booking page', function () {
+    homepage.open()
 });
 
