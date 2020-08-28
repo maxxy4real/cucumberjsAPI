@@ -8,24 +8,32 @@ class homePage extends Page {
     get price()     { return $('#totalprice'); }
     get depositSelect()   { return $('#depositpaid'); }
     get checkInInput()   { return $('#checkin'); }
-    get checkInInput()   { return $('#checkout'); }
+    get checkOutInput()   { return $('#checkout'); }
     get saveButton()     { return $('#form input[type=button]'); }
+
+    get bookingsList()     { return $('#bookings .row'); }
+
 
     open () {
         super.open('/')
     }
 
-    waitForloginPageToLoad () {
-      if(!this.headerImage.isDisplayed()){
-        this.headerImage.waitForDisplayed(10000);
+    waitForPageToLoad () {
+      if(!this.pageHeader.isDisplayed()){
+        this.pageHeader.waitForDisplayed(10000);
       }
     }
 
-    login (username, password) {
-      //this.waitForloginPageToLoad();
-      this.usernameInput.setValue(username);
-      this.passwordInput.setValue(password);
-      this.loginButton.click();
+    enterBooking (price, checkIn, checkOut, deposit) {
+      if (deposit == "paid") deposit = "true"
+      else deposit = "false"
+
+      this.firstName.setValue('Test');
+      this.surName.setValue('User');
+      this.price.setValue(price);
+      this.checkInInput.setValue(checkIn);
+      this.checkOutInput.setValue(checkOut);
+      this.saveButton.click();
     }
 }
 

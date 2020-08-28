@@ -17,7 +17,7 @@ Then('every booking should have a booking Id', function () {
   else console.log("No bookings made")
 });
 
-Given('I add a booking priced at {float} to check in on {string} and checkout on {string} with deposit {word}', async function (amount, checkInDate, checkOutDate, depositPaid) {
+Given('I post a booking priced at {float} to check in on {string} and checkout on {string} with deposit {word}', async function (amount, checkInDate, checkOutDate, depositPaid) {
   let deposit
   if (depositPaid == "paid") deposit = "true"
   else deposit = "false"
