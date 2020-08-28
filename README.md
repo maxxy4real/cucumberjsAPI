@@ -1,13 +1,6 @@
-### Pre-requisites
+### Pre-requisites to run automated test
+Node installed on machine 
 
-1. cd to frontend/mobile and run one of the below commands 
-
-```
- $ yarn install
-```
-#####Running tests against Master (please note: the Enviroment_Instance master number can be 0-3)
-```
-ENVIRONMENT=local yarn run test
-```
-
-```
+1. `npm install`
+2. to run ui tests `npm run test:web`
+3. to run api tests `npm run testapi`
