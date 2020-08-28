@@ -1,3 +1,4 @@
+  @ui
   Feature: Bookings
   Background: Landing page
     Given I am on the booking page

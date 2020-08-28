@@ -6,6 +6,6 @@ axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 axios.defaults.headers['Accept'] = 'application/json';
 
 export const httpClient = axios.create({ 
-  timeout: 2000,
+  timeout: 5000,
   baseURL: process.env.BASE_URL
 });
