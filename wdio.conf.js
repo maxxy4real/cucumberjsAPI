@@ -162,7 +162,7 @@ exports.config = {
             // './src/steps/when.js',
             // Or search a (sub)folder for JS files with a wildcard
             // works since version 1.1 of the wdio-cucumber-framework
-            './featrures/**/*.js',
+            './features/**/*.js',
         ],
         // <string> specify a custom snippet syntax
         snippetSyntax: undefined,

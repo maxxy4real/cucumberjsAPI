@@ -1,12 +1,12 @@
-const presets = [
-    [
-      '@babel/env', {
-        targets: {
-          chrome: '70',
-          node: 10
-        },
-      },
-    ],
-  ]
-  
-  module.exports = { presets }
+module.exports = {
+  plugins: [
+      '@babel/plugin-proposal-export-default-from',
+  ],
+  presets: [
+      ['@babel/preset-env', {
+          targets: {
+              node: 'current',
+          },
+      }],
+  ],
+};
