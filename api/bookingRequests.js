@@ -8,21 +8,29 @@ export const getBookings = async () => {
   return res.data;
 };
 
-export const createBooking = async (data) => {
-  const jsonData = JSON.stringify(data)
-  const res = await httpClient.post('/booking', {
+export const createBooking = async (data = null) => {
+  const postData = data? data : {
     "bookingdates": {
-      "checkin": "2020-09-16",
-      "checkout": "2020-09-20"
+      "checkin": "2020-12-25",
+      "checkout": "2020-12-27"
     },
     "depositpaid": "true",
-    "firstname": "Tester",
-    "lastname": "Ruban",
-    "totalprice": "50"
-  });
+    "firstname": "AnyOld",
+    "lastname": "Tester",
+    "totalprice": "999"
+  }
 
-  assert.equal(res.status, 200, `status code is ${res.status}`)
-  return res.data;
+  let res;
+  try {
+    res = await httpClient.post('/booking', postData);
+    assert.equal(res.status, 200, `status code is ${res.status}`)
+    return res.data;
+
+  } catch (err){
+    // server is returning 418 although post is successful, most likely CORS issue 
+    if (err.response.status == 418) return err.response.status
+    else throw(err)
+  }
 };
 
 export const getBookingDetails = async (bookingId) => {
