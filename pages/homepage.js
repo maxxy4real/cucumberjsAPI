@@ -10,6 +10,7 @@ class homePage extends Page {
     get checkInInput()   { return $('#checkin'); }
     get checkOutInput()   { return $('#checkout'); }
     get saveButton()     { return $('#form input[type=button]'); }
+    get deleteButton()     { return $('#bookings .row input[type=button]'); }
 
     get bookingsList()     { return $('#bookings .row'); }
 
@@ -34,6 +35,30 @@ class homePage extends Page {
       this.checkInInput.setValue(checkIn);
       this.checkOutInput.setValue(checkOut);
       this.saveButton.click();
+    }
+
+    deleteFirstBooking () {
+      this.deleteButton.click();
+    }
+
+    waitForNewBookings(){
+      browser.waitUntil(
+        async () => await expect(browser.$$('#bookings .row').length).to.be.greaterThan(this.bookings),
+        {
+            timeout: 2000,
+            timeoutMsg: 'expected new bookings to show up'
+        }
+      )
+    }
+
+    waitForLessBookings(){
+      browser.waitUntil(
+        async () => await expect(browser.$$('#bookings .row').length).to.be.lessThan(this.bookings),
+        {
+            timeout: 2000,
+            timeoutMsg: 'expected less bookings to be displayed'
+        }
+      )
     }
 }
 
