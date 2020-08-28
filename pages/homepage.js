@@ -32,8 +32,10 @@ class homePage extends Page {
       this.firstName.setValue('Test');
       this.surName.setValue('User');
       this.price.setValue(price);
+      this.depositSelect.selectByVisibleText(deposit)
       this.checkInInput.setValue(checkIn);
       this.checkOutInput.setValue(checkOut);
+      // browser.pause(5000)
       this.saveButton.click();
     }
 

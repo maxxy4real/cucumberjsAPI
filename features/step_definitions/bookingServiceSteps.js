@@ -1,6 +1,5 @@
-import { Given, When, Then } from 'cucumber';
-import { assert, expect } from 'chai';
-import { users } from '../../data/userData/users';
+import { Given, Then } from 'cucumber';
+import { assert } from 'chai';
 import { createBooking, getBookings, getBookingDetails } from '../../api/bookingRequests';
 
 
