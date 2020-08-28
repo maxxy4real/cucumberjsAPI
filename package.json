@@ -1,0 +1,36 @@
+{
+  "name": "ava-backend-services-tests",
+  "scripts": {
+    "test:web:dev": "ENV=dev wdio wdio.BUILD.conf.js",
+    "test:api:dev": "ENV=dev ./node_modules/.bin/cucumber-js -p apiProf"
+  },
+  "keywords": [],
+  "author": "Derin Ruban",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
+    "axios": "^0.19.2",
+    "chai": "^4.2.0",
+    "cucumber": "^6.0.5",
+    "cucumber-html-reporter": "^5.2.0",
+    "cucumber-pretty": "^6.0.0",
+    "dotenv": "^8.2.0",
+    "faker": "^4.1.0",
+    "@wdio/cli": "^6.0.8",
+    "@wdio/config": "^6.0.8",
+    "@wdio/cucumber-framework": "^6.0.8",
+    "@wdio/local-runner": "^6.0.8",
+    "@wdio/selenium-standalone-service": "^6.0.8",
+    "@wdio/spec-reporter": "^6.0.8",
+    "@wdio/static-server-service": "^6.0.8",
+    "@wdio/sync": "^6.0.8",
+    "chromedriver": "^84.0.1",
+    "npm-run-all": "^4.1.5",
+    "wdio-chromedriver-service": "^6.0.3",
+    "webdriverio": "^6.0.8"
+  }
+}
