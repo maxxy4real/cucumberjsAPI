@@ -2,10 +2,14 @@ import { httpClient } from '../tools/httpClient';
 import { assert } from 'chai';
 
 export const getBookings = async () => {
-  const res = await httpClient.get('/booking');
+  try {
+    const res = await httpClient.get('/booking');
 
-  assert.equal(res.status, 200, `status code is ${res.status}`)
-  return res.data;
+    assert.equal(res.status, 200, `status code is ${res.status}`)
+    return res.data;
+  } catch(err){
+    throw(err)
+  }  
 };
 
 export const createBooking = async (data = null) => {
@@ -20,22 +24,34 @@ export const createBooking = async (data = null) => {
     "totalprice": "999"
   }
 
-  let res;
   try {
-    res = await httpClient.post('/booking', postData);
+    const res = await httpClient.post('/booking', postData);
     assert.equal(res.status, 200, `status code is ${res.status}`)
     return res.data;
 
   } catch (err){
-    // server is returning 418 although post is successful, most likely CORS issue 
-    if (err.response.status == 418) return err.response.status
-    else throw(err)
+    throw(err)
   }
 };
 
 export const getBookingDetails = async (bookingId) => {
-  const res = await httpClient.get(`/booking/${bookingId}`);
+  try {
+    const res = await httpClient.get(`/booking/${bookingId}`);
 
-  assert.equal(res.status, 200, `status code is ${res.status}`)
-  return res.data;
+    assert.equal(res.status, 200, `status code is ${res.status}`)
+    return res.data;
+  } catch(err){
+    throw(err)
+  }
+};
+
+export const deleteBooking = async (bookingId) => {
+  try {
+    const res = await httpClient.get(`/booking/${bookingId}`);
+
+    assert.equal(res.status, 200, `status code is ${res.status}`)
+    return res.data;
+  } catch(err){
+    throw(err)
+  }
 };

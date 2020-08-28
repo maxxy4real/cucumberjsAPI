@@ -171,7 +171,7 @@ exports.config = {
         // <string> (expression) only execute the features or scenarios with
         // tags matching the expression, see
         // https://docs.cucumber.io/tag-expressions/
-        tagExpression: 'not @wip',
+        tagExpression: 'not @wip and not @api',
         // <boolean> add cucumber tags to feature or scenario name
         tagsInTitle: false,
         // <number> timeout for step definitions

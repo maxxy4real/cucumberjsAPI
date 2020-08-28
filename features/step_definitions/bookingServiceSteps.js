@@ -11,7 +11,7 @@ Given('I can retrieve all bookings', async function() {
 Then('every booking should have a booking Id', function () {
   if (this.bookings.length > 0){
     for(let i = 0; i < this.bookings.length; i++){
-      assert.isNotNull(this.bookings[i].bookingid)
+      assert.isNumber(this.bookings[i].bookingid)
     }
   } 
   else console.log("No bookings made")
@@ -34,9 +34,23 @@ Given('I post a booking priced at {float} to check in on {string} and checkout o
   }
 
   this.newBooking = await createBooking(postData)
+});
+
+Then('the correct booking details are returned', function () {
   assert.isNotNull(this.newBooking.bookingid)
+  checkBookingData(this.newBooking.booking)
 });
 
 Then('I can retrieve individual booking details', async function () {
-  const booking = await getBookingDetails(this.newBooking.bookingid);
+  const bookingId = this.bookings[0].bookingid
+  let data = await getBookingDetails(bookingId)
+  checkBookingData(data)
 });
+
+function checkBookingData(data) {
+  assert.isString(data.firstname)
+  assert.isString(data.lastname)
+  assert.isNumber(data.totalprice)
+  assert.isBoolean(data.depositpaid)
+  assert.isObject(data.bookingdates)
+};
