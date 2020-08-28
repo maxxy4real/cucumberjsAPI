@@ -1,6 +1,6 @@
 import { Given, Then } from 'cucumber';
 import { assert } from 'chai';
-import { createBooking, getBookings, getBookingDetails } from '../../api/bookingRequests';
+import { createBooking, getBookings, getBookingDetails, deleteBooking } from '../../api/bookingRequests';
 
 
 Given('I can retrieve all bookings', async function() {
@@ -44,6 +44,17 @@ Then('I can retrieve individual booking details', async function () {
   const bookingId = this.bookings[0].bookingid
   let data = await getBookingDetails(bookingId)
   checkBookingData(data)
+});
+
+Then('I can delete a booking by bookingid', async function () {
+  const bookingId = this.bookings[0].bookingid
+  console.log(bookingId)
+  let x = await deleteBooking(bookingId)
+  console.log(x)
+});
+
+Given('there are existing bookings on record', async function () {
+  await createBooking()
 });
 
 function checkBookingData(data) {

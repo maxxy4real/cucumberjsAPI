@@ -18,7 +18,7 @@ Then('a new booking should be displayed on the page', async function () {
     homepage.waitForNewBookings
 });
 
-When('there are existing bookings', async function () {
+When('there are existing bookings displayed', async function () {
     if (browser.$$('#bookings .row').length < 2) {
         await createBooking()
         browser.refresh()

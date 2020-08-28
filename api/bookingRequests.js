@@ -47,10 +47,10 @@ export const getBookingDetails = async (bookingId) => {
 
 export const deleteBooking = async (bookingId) => {
   try {
-    const res = await httpClient.get(`/booking/${bookingId}`);
+    const res = await httpClient.delete(`/booking/${bookingId}`);
 
-    assert.equal(res.status, 200, `status code is ${res.status}`)
-    return res.data;
+    assert.equal(res.status, 201, `status code is ${res.status}`)
+    return res;
   } catch(err){
     throw(err)
   }
