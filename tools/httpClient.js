@@ -7,5 +7,8 @@ axios.defaults.headers['Accept'] = 'application/json'
 
 export const httpClient = axios.create({ 
   timeout: 5000,
-  baseURL: process.env.BASE_URL
+  baseURL: process.env.BASE_URL,
+  validateStatus:(status) =>{
+    return status < 504
+  }
 })

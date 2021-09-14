@@ -1,5 +1,9 @@
-### Pre-requisites to run automated test
-Node installed on machine 
-
-1. unzip directory to local machine, cd in, and run `npm install` via terminal 
-2. to run api tests `npm run test:api`
+# Pre-requisite
+ - clone the repository || Download and unzip this file
+ - Node version v12.19.0 or higher `(https://nodejs.org/en/download/)`
+ 
+ # Set up
+  - run `npm install` This will install all the packages and its dependencies
+  
+ # Running test locally
+   - To start tests run `npm run test:api` within the root
