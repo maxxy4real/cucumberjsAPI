@@ -1,10 +1,10 @@
-import { Given, Then } from 'cucumber';
-import { assert } from 'chai';
-import { createBooking, getBookings, getBookingDetails, deleteBooking } from '../../api/bookingRequests';
+import { Given, Then } from 'cucumber'
+import { assert } from 'chai'
+import { createBooking, getBookings, getBookingDetails, deleteBooking } from '../../api/bookingRequests'
 
 
 Given('I can retrieve all bookings', async function() {
-  this.bookings = await getBookings();
+  this.bookings = await getBookings()
 });
 
 Then('every booking should have a booking Id', function () {

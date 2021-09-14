@@ -1,16 +1,16 @@
-import { httpClient } from '../tools/httpClient';
-import { assert } from 'chai';
+import { httpClient } from '../tools/httpClient'
+import { assert } from 'chai'
 
 export const getBookings = async () => {
   try {
-    const res = await httpClient.get('/booking');
+    const res = await httpClient.get('/booking')
 
     assert.equal(res.status, 200, `status code is ${res.status}`)
-    return res.data;
+    return res.data
   } catch(err){
     throw(err)
   }  
-};
+}
 
 export const createBooking = async (data = null) => {
   const postData = data? data : {
@@ -27,7 +27,7 @@ export const createBooking = async (data = null) => {
   try {
     const res = await httpClient.post('/booking', postData);
     assert.equal(res.status, 200, `status code is ${res.status}`)
-    return res.data;
+    return res.data
 
   } catch (err){
     throw(err)
@@ -39,7 +39,7 @@ export const getBookingDetails = async (bookingId) => {
     const res = await httpClient.get(`/booking/${bookingId}`);
 
     assert.equal(res.status, 200, `status code is ${res.status}`)
-    return res.data;
+    return res.data
   } catch(err){
     throw(err)
   }
@@ -50,7 +50,7 @@ export const deleteBooking = async (bookingId) => {
     const res = await httpClient.delete(`/booking/${bookingId}`);
 
     assert.equal(res.status, 201, `status code is ${res.status}`)
-    return res;
+    return res
   } catch(err){
     throw(err)
   }
